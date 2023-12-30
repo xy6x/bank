@@ -17,8 +17,11 @@ public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(columnDefinition = "int")
     private Integer accountNumber;
     private double balance;
+    @AssertFalse
+    @Column(columnDefinition = "Boolean")
     private  Boolean asActive;
     @ManyToOne
     @JoinColumn(name = "cus_id",referencedColumnName = "id")

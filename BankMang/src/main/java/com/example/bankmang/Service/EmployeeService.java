@@ -27,7 +27,7 @@ public class EmployeeService {
             throw new ApiException("The user not found");
         }
         else if (employeeDTO.getUser_id()!=id) {
-            throw new ApiException("The user not same");
+            throw new ApiException("The user not ");
         }
 
         Employee employee=new Employee(null,employeeDTO.getPosition(),employeeDTO.getSalary(),user);

@@ -33,5 +33,9 @@ public class UserController {
         userService.deleteUser(auth.getId());
         return ResponseEntity.status(HttpStatus.OK).body("delete user");
     }
+    @PostMapping("/logout")
+    public ResponseEntity logout(){
+        return ResponseEntity.status(200).body("logout");
+    }
 
 }

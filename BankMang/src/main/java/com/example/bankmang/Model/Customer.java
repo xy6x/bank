@@ -14,14 +14,17 @@ import java.util.Set;
 @AllArgsConstructor
 @Entity
 @NoArgsConstructor
+@Table(name = "cus")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @Column(columnDefinition = "varchar(255)")
     private String phoneNumber;
 
-
+//
     @OneToOne
+
     @JsonIgnore
     private User users;
 

@@ -26,7 +26,7 @@ public class AccountService {
         if (customer == null) {
             throw new ApiException("the customer not found");
         }
-        Account account = new Account(null, accountDTO.getAccountNumber(), accountDTO.getBalance(), accountDTO.getAsActive(), customer);
+        Account account = new Account(null, accountDTO.getAccountNumber(), accountDTO.getBalance(), accountDTO.getAsActive(),customer);
         accountRepository.save(account);
     }
 
@@ -48,5 +48,10 @@ public class AccountService {
             throw new ApiException("the account not found");
         }
         accountRepository.delete(account);
+    }
+    public List<Account> ActiveBank(){
+       List <Account> account =accountRepository.findAccountByAsActive();
+
+       return account;
     }
 }

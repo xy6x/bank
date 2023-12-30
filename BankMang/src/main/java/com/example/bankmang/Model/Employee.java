@@ -17,8 +17,8 @@ import java.util.Set;
 public class Employee {
     @Id
     private Integer id;
+    @Column(columnDefinition = "varchar(255)")
     private String position;
-
     private double salary;
     @OneToOne
     @MapsId

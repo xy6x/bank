@@ -18,7 +18,7 @@ public class UserService {
         return userRepository.findAll();
     }
     public void addUser(User user){
-            user.setRole("Customer");
+            user.setRole("CUSTOMER");
             String hash=new BCryptPasswordEncoder().encode(user.getPassword());
             user.setPassword(hash);
         userRepository.save(user);
@@ -28,7 +28,7 @@ public class UserService {
         if (oldUser == null) {
             throw new ApiException("the id user not found");
         }
-        oldUser.setUserName(user.getUserName());
+        oldUser.setUserName(user.getUsername());
         oldUser.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
         oldUser.setName(user.getName());
         oldUser.setEmail(user.getEmail());
