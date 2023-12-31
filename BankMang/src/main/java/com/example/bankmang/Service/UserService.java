@@ -34,8 +34,6 @@ public class UserService {
         oldUser.setEmail(user.getEmail());
         userRepository.save(oldUser);
 
-
-        userRepository.save(oldUser);
     }
     public void deleteUser(Integer id){
         User user =userRepository.findUserById(id);

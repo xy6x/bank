@@ -31,15 +31,19 @@ public class Security {
                 .and()
                 .authenticationProvider(authenticationProvider())
                 .authorizeHttpRequests()
-                .requestMatchers("/Api/v1/user/**","/Api/v1/customer/**","/Api/v1/account/**","/Api/v1/employee/**").permitAll()
+                .requestMatchers("/Api/v1/user/**").permitAll()
+                .requestMatchers("/Api/v1/customer/**").permitAll()
+                .requestMatchers("/Api/v1/account/**").hasAuthority("ADMIN")
+                .anyRequest().authenticated()
                 .and()
-                .logout().logoutUrl("api/v1/user/logout")
+                .logout().logoutUrl("api/v1/autho/logout")
                 .deleteCookies("JSESSIONID")
                 .invalidateHttpSession(true)
                 .and()
                 .httpBasic();
-        return  http.build();
+        return http.build();
 
     }
+
 
 }

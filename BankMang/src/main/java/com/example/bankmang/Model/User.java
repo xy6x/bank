@@ -17,7 +17,7 @@ import java.util.Collections;
 @AllArgsConstructor
 @Entity
 @NoArgsConstructor
-public  class User implements UserDetails {
+public  class User implements UserDetails  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -29,7 +29,7 @@ public  class User implements UserDetails {
     private String name;
 @Column(columnDefinition = "varchar(255)")
     private String email;
-//    @Column(columnDefinition = "varchar(12) check(role='Customer' or role='employee' or role='admin')")
+    @Column(columnDefinition = "varchar(12) check(role='Customer' or role='employee' or role='admin')")
     private String role;
     @OneToOne(cascade = CascadeType.ALL,mappedBy = "user")
     private Employee employee;

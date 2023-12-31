@@ -38,4 +38,17 @@ public class AccountController {
         accountService.deleteAccount(auth.getId());
         return ResponseEntity.status(HttpStatus.OK).body("delete Account");
     }
+    @GetMapping("/check")
+    public ResponseEntity checkAllAccount(@AuthenticationPrincipal Employee auth) {
+        return ResponseEntity.status(HttpStatus.OK).body(accountService.ActiveBank(auth.getId()));
+    }
+    @PutMapping("/active")
+    public  ResponseEntity activeBank(@AuthenticationPrincipal Employee auth,Integer id){
+        accountService.CheckAccount(auth.getId(),id);
+        return ResponseEntity.status(HttpStatus.OK).body("active ");
+    }
+    @GetMapping("/account")
+    public ResponseEntity muAccount(@AuthenticationPrincipal Customer auth){
+        return ResponseEntity.status(HttpStatus.OK).body(accountService.myAccount(auth.getId()));
+    }
 }

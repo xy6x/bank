@@ -12,4 +12,5 @@ public interface AccountRepository extends JpaRepository<Account,Integer> {
 
   @Query("select e from Account e WHERE  e.asActive = true ")
     List<Account> findAccountByAsActive();
+
 }

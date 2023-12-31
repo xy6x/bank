@@ -37,5 +37,9 @@ public class UserController {
     public ResponseEntity logout(){
         return ResponseEntity.status(200).body("logout");
     }
+    @PostMapping("/login")
+    public ResponseEntity login(){
+        return ResponseEntity.status(200).body("Logged in successfully");
+    }
 
 }
